@@ -111,3 +111,102 @@ def merge_sort_in_place(arr, left, right):
         merge_in_place(arr, left, middle, right)
 
     return arr
+
+
+##### fibbonacci
+
+# 0 1 1 2 3 5 8 13 21 34 55
+
+# Memoization, "caching"
+# Top-Down Dynamic Programming
+
+cache = {}
+
+
+def fib(n):
+    if n <= 1:
+        return n
+
+    if n not in cache:
+        cache[n] = fib(n - 1) + fib(n - 2)
+
+    return cache[n]
+
+
+for i in range(1000000):
+    print(f"{i}: {fib(i)}")
+
+d = {
+    "foo": 12,
+    "bar": 17,
+    "qux": 2,
+    # 34: 3,
+    "^%#": 99
+}
+
+i = list(d.items())
+
+i.sort()  # Sort by key, then value
+
+# If keys are different types, force them to be the same type
+# Beej doesn't yet know why this is sorting out of order, but must find out!
+# i.sort(key=lambda e: str(e))
+
+# print(i)
+
+
+"""
+def comp(e):
+	return e[1]
+
+i.sort(key=comp)
+"""
+i.sort(key=lambda e: e[1])
+
+print(i)
+
+# Lookup table
+
+
+import math
+
+# Build a lookup table for inverse square root for numbers 1 - 1000.
+
+inv_sqrt_table = {}
+
+def inv_sqrt(n):
+	if n not in inv_sqrt_table:
+		inv_sqrt_table[n] = 1 / math.sqrt(n)
+
+	return inv_sqrt_table[n]
+
+def build_lookup_table():
+	for i in range(1, 10000001):
+		inv_sqrt_table[i] = inv_sqrt(i)
+
+build_lookup_table()
+
+#print(inv_sqrt_table[10])
+#print(inv_sqrt_table[37])
+
+
+print(inv_sqrt(10))
+print(inv_sqrt(37))
+print(inv_sqrt(10000000000))
+print(inv_sqrt(37))
+print(inv_sqrt(37))
+print(inv_sqrt(37))
+print(inv_sqrt(37))
+print(inv_sqrt(37))
+print(inv_sqrt(37))
+print(inv_sqrt(37))
+print(inv_sqrt(37))
+print(inv_sqrt(37))
+print(inv_sqrt(37))
+print(inv_sqrt(37))
+print(inv_sqrt(37))
+print(inv_sqrt(37))
+print(inv_sqrt(37))
+print(inv_sqrt(37))
+print(inv_sqrt(37))
+print(inv_sqrt(37))

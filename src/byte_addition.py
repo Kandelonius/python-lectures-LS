@@ -17,10 +17,10 @@ def byte_word_creator(word = '', num = 0, target = 0):
                 byte_word_creator(word, word.encode(), target)
         # print(ord(i))
 
-byte_word_creator('', 0, 197)
+# byte_word_creator('', 0, 197)
 large = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz !"#$%&\'()*+,-./0123456789:;<=>?@[\\]^_`{}|~'
 # small = 'a\\ b'
 # print(small)
-print(ord(large))
-# for i in large:
-#     print(ord(i))
+print(large)
+for i in large:
+    print(f"{i} is {ord(i)}")
