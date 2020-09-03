@@ -12,11 +12,12 @@ def byte_word_creator(word = '', num = 0, target = 0):
             byte_word_list.append(word)
             print(f"this value is {ord(i)} value is {num} target is {target} word is {word} word value is {get_bytes(word)}")
             index += 1
+            word = ''
             continue
         elif ord(i) + num < target:
             word += (str(i))
-            if get_bytes(word) + 32 > target:
-                # word = ''
+            if get_bytes(word) + 33 > target:
+                word = ''
                 continue
             else:
                 print(f"word is {word} value is {get_bytes(word)} target is {target}")
