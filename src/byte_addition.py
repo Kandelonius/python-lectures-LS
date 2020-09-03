@@ -1,26 +1,42 @@
 
-byte_word_list = {}
+byte_word_list = []
+partial_word_list = {}
 def byte_word_creator(word = '', num = 0, target = 0):
+    index = 0
     # small = 'a\\ b'
     ### create a program that will calculate the character combinations using byte
-    alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz !"#$%&\'()*+,-./0123456789:;<=>?@[\\]^_`{}|~'
+    alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!"#$%&\'()*+,-./0123456789:;<=>?@[\\]^_`{}|~'
     for i in alphabet:
         if ord(i) + num == target:
-            word.__add__(str(i))
+            word += (str(i))
             byte_word_list.append(word)
-            return
+            print(f"this value is {ord(i)} value is {num} target is {target} word is {word} word value is {get_bytes(word)}")
+            index += 1
+            continue
         elif ord(i) + num < target:
             word += (str(i))
-            if word.encode('utf-8') + 32 > target:
-                return
+            if get_bytes(word) + 32 > target:
+                # word = ''
+                continue
             else:
-                byte_word_creator(word, word.encode(), target)
+                print(f"word is {word} value is {get_bytes(word)} target is {target}")
+                byte_word_creator(word, get_bytes(word), target)
+        word = ''
+    return word
         # print(ord(i))
 
-# byte_word_creator('', 0, 197)
+def get_bytes(w):
+    b = w.encode()
+    total = 0
+    for i in b:
+        total += i
+    return total
+
+byte_word_creator('', 0, 374)
 large = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz !"#$%&\'()*+,-./0123456789:;<=>?@[\\]^_`{}|~'
 # small = 'a\\ b'
 # print(small)
-print(large)
-for i in large:
-    print(f"{i} is {ord(i)}")
+# print(large)
+# for i in large:
+#     print(f"{i} is {ord(i)}")
+# print(byte_word_list)
