@@ -2,8 +2,8 @@ import sys
 
 from department import Department
 from product import Product
-from user import User
 from store import Store
+from user import User
 
 # user will pass in either 0 or 1 command-line arguments to the program
 num_args = len(sys.argv)

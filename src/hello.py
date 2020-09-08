@@ -10,7 +10,7 @@ print(f'Someone\'s name is {name}')
 print("Hello world")
 
 # How does this differ from how you would do it in your
-    # core track language?
+# core track language?
 # JS: console.log("Hello world")
 
 # How does how we ran this program differ from how we'd do

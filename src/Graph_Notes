@@ -93,9 +93,55 @@ def bfs(self, starting_vertex_id, target_vertex_id):
             # Mark it as visited...
             # Then add A PATH TO its neighbors to the back of the queue
               # COPY THE PATH
-              # APPEND THE NEIGHOR TO THE BACK
+              # APPEND THE NEIGHBOR TO THE BACK
 
 
 Depth-first search:
 
 Same as breadth-first search, except with a stack instead of a queue.
+
+Graphs
+------
+Nodes connected by edges
+Vertexes
+Vertices
+Verts
+
+Directed vs undirected
+    Directed has one-way edges
+
+Cyclic vs Acyclic:
+    Cyclic has a way to get back to a node you've already visited
+
+Weighted edges:
+    "Cost" with traversing an edge
+
+
+Traversals:
+
+Breadth-first traversal
+Depth-first traversal
+
+
+
+LL:
+
+cur = head
+while cur is not None:
+    print(cur)
+    cur = cur.next
+
+
+Binary Tree:
+
+traverse(node):
+    if node is None: return
+
+    traverse(node.left)
+    print(node)
+    traverse(node.right)
+
+General graph:
+
+???
+

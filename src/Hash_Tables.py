@@ -85,7 +85,6 @@ print(get("Beej"))  # 3490
 delete("Beej")
 print(get("Beej"))  # None
 
-
 # print(table)
 
 ##### Load factor notes
@@ -122,6 +121,7 @@ Go through all the elements in the old hash table
 Insert them into the new array
 """
 
+
 #####  rehash pseudocode
 def rehash():
     new_table = [None] * (len(table) * 2)
@@ -131,6 +131,7 @@ def rehash():
         for each element in the linked list in that slot:
             PUT that element in new_table
     """
+
 
 ##### application notes
 
@@ -178,25 +179,27 @@ Counting and removing duplicates
 
 """
 
+
 # Count the number of occurrences of a letter in a string
 # "Hello there!"
 
 def letter_count(s):
-	d = {}
+    d = {}
 
-	for c in s:
+    for c in s:
 
-		if c.isspace():
-			continue
+        if c.isspace():
+            continue
 
-		c = c.upper()
+        c = c.upper()
 
-		if c not in d:
-			#d[c] = 0
-			d[c] = 1
-		else:
-			d[c] += 1
+        if c not in d:
+            # d[c] = 0
+            d[c] = 1
+        else:
+            d[c] += 1
 
-	return d
+    return d
+
 
 print(letter_count("Hello there!"))

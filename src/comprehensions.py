@@ -38,7 +38,7 @@ for name in names:
     if name[0].lower() == 's':
         s_names.append(name.capitalize())
 # if it does, add it to `s_names`, making sure the
-    # name is properly capitalized 
+# name is properly capitalized
 print(s_names)
 # print(names)
 

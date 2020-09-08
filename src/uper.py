@@ -43,6 +43,7 @@ def recursive_factorial(n):
 
     return n * recursive_factorial(n - 1)
 
+
 # print(recursive_factorial(5))
 # print(recursive_factorial(2))
 # print(recursive_factorial(1))
@@ -80,6 +81,7 @@ def iterative_factorial(n):
 
     return total
 
+
 # print(iterative_factorial(5))
 # print(iterative_factorial(2))
 # print(iterative_factorial(0))
@@ -100,7 +102,6 @@ def iterative_factorial(n):
 ### BetterExplained
 
 ## Diagram
-
 
 
 ## Power!
@@ -139,17 +140,18 @@ def iterative_factorial(n):
 ## E
 ### multiply int by itself recursively
 def recursive_power(base, exp):
-### if power is 0, return 1
+    ### if power is 0, return 1
     if exp == 0:
         return 1
 
-## if exp is 0, make whole thing a fraction
-## change exp to positive
+    ## if exp is 0, make whole thing a fraction
+    ## change exp to positive
     if exp < 0:
-        return 1/(base * recursive_power(base, -exp - 1))
-## otherwise, recurse with exponent - 1
-## return number times recursion result
+        return 1 / (base * recursive_power(base, -exp - 1))
+    ## otherwise, recurse with exponent - 1
+    ## return number times recursion result
     return base * recursive_power(base, exp - 1)
+
 
 ## Review
 ### Check basics
@@ -182,7 +184,7 @@ def recursive_power(base, exp):
 
 ## Execute
 def iterative_power(base, exp):
-#### before loop, check for 0 or negative exponents
+    #### before loop, check for 0 or negative exponents
     total = 1
     counter = exp
     if exp == 0:
@@ -190,11 +192,11 @@ def iterative_power(base, exp):
     #### if neg exp, return as fraction
     elif exp < 0:
         counter = -counter
-        base = 1/base
+        base = 1 / base
 
-#### Use exponent as counter
+    #### Use exponent as counter
     while counter > 0:
-#### loop through multiplying the base
+        #### loop through multiplying the base
         total *= base
         counter -= 1
 
@@ -204,10 +206,10 @@ def iterative_power(base, exp):
 ## Review
 
 
-print(iterative_power(0, 0)) # 1
-print(iterative_power(2, 0)) # 1
-print(iterative_power(2, 2)) # 4
-print(iterative_power(2, 3)) # 8
+print(iterative_power(0, 0))  # 1
+print(iterative_power(2, 0))  # 1
+print(iterative_power(2, 2))  # 4
+print(iterative_power(2, 3))  # 8
 
 ## negative bases
 print(iterative_power(-2, 2))  # 4

@@ -31,38 +31,40 @@ encode_table = {
     'Z': 'S'
 }
 
-decode_table = {value:key for key, value in encode_table.items()}
+decode_table = {value: key for key, value in encode_table.items()}
 
 decode_table = {}
 
 for key, value in encode_table.items():
-	decode_table[value] = key
+    decode_table[value] = key
+
 
 def encrypt(s):
-	result = ''
+    result = ''
 
-	for c in s:
-		c = c.upper()
+    for c in s:
+        c = c.upper()
 
-		if c.isalpha():
-			result += encode_table[c]
-		else:
-			result += c
+        if c.isalpha():
+            result += encode_table[c]
+        else:
+            result += c
 
-	return result
+    return result
+
 
 def decrypt(s):
-	result = ''
+    result = ''
 
-	for c in s:
-		c = c.upper()
+    for c in s:
+        c = c.upper()
 
-		if c.isalpha():
-			result += decode_table[c]
-		else:
-			result += c
+        if c.isalpha():
+            result += decode_table[c]
+        else:
+            result += c
 
-	return result
+    return result
 
 
 print(encrypt("Hello, world!"))

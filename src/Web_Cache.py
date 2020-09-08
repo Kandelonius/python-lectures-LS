@@ -13,8 +13,9 @@ x How are we going to cache it?
 
 """
 
-import urllib.request
 import datetime
+import urllib.request
+
 
 class CacheEntry:
     def __init__(self, data):
@@ -43,4 +44,3 @@ while True:
         print("CACHE HIT")
 
     print(cache[url].data[:65])
-

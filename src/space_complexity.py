@@ -7,6 +7,7 @@ arr = [1, 2, 3, 4, 5]
 
 second_arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
+
 def counter(arr):
     total = 0
 
@@ -14,6 +15,7 @@ def counter(arr):
         total += 1
 
     return total
+
 
 # Time complexity
 ## Linear
@@ -32,6 +34,7 @@ def duplicate(arr):
         copy_arr.append(thing)
 
     return None
+
 
 # Time complexity
 # 1 + len(n)
@@ -53,9 +56,10 @@ def times_table(n):
 
     return times_table
 
+
 # print(times_table(5))
-table = times_table(5) # 5x5 matrix = 25 
-table = times_table(10) # 10x10 matrix = 100
+table = times_table(5)  # 5x5 matrix = 25
+table = times_table(10)  # 10x10 matrix = 100
 for row in table:
     print(row)
 
@@ -69,9 +73,9 @@ for row in table:
 # space == memory
 
 # Pandas, Python library
-matrix =        [[1, 2, 3, 4, 5],
-                 [6, 7, 8, 9, 10],
-                 [11, 12, 13, 14, 15]]
+matrix = [[1, 2, 3, 4, 5],
+          [6, 7, 8, 9, 10],
+          [11, 12, 13, 14, 15]]
 
 first_row = matrix[0]
 one = first_row[0]

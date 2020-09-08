@@ -1,4 +1,3 @@
-
 # What do we need for a recursive function?
 ## Base case
 ## Function that calls itself
@@ -37,6 +36,7 @@ def partition(arr):
     # Python wraps in a tuple
     return left, pivot, right
 
+
 # QuickSort
 
 # RecursionError: maximum recursion depth exceeded in comparison
@@ -48,11 +48,12 @@ def quicksort(arr):
     if len(arr) == 0:
         return arr
 
-## recurse on left and right sides
-        # tuple unpacking
+    ## recurse on left and right sides
+    # tuple unpacking
     left, pivot, right = partition(arr)
 
     return quicksort(left) + [pivot] + quicksort(right)
+
 
 print(quicksort([1, 3, 11, 4, 6, 5, 9]))
 # binary search

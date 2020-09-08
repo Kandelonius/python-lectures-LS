@@ -13,15 +13,19 @@ def mult2_list(l):
 
 
 print(mult2_list([4, 6, 2, 67, 7, 0]))
+
+
 # y = [(x+1) for x in range(5)]
 
 # how do we define a function Python?
 def mult2(n):
     return n * 2
 
+
 num = 50
 
 print(mult2(num))
+
 
 # define a function that receives a list of numbers
 # and multiplies every number in the list by 2
@@ -34,11 +38,13 @@ def mult2_list(l):
         # update it to be equal to the current value * 2
         l[i] *= 2
 
+
 nums = [10, 60, 4, 15]
 
 mult2_list(nums)
 
 print(nums)
+
 
 def mult2_new_list(l):
     # creates a new list with the updated values
@@ -50,5 +56,6 @@ def mult2_new_list(l):
     # we need to return the `new_list` here so that it can
     # make its way outside this function
     return new_list
+
 
 print(mult2_new_list([3, 5, 34, 10, 15]))

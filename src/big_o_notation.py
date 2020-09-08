@@ -63,10 +63,9 @@ def two_loops(arr):  # still O(n) linear
 def two_n_demo(n):
     if n == 0:
         return 1
-    a = two_n_demo(n-1)
+    a = two_n_demo(n - 1)
     b = two_n_demo(n - 1)
     return a + b
 
 
 two_n_demo(3)
-

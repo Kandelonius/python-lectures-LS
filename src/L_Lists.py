@@ -6,6 +6,7 @@ class Node:
     def __repr__(self):
         return f'Node({repr(self.value)})'
 
+
 class LinkedList:
     def __init__(self):
         self.head = None
@@ -56,7 +57,7 @@ class LinkedList:
 
         while cur is not None:
             if cur.value == value:  # Found it!
-                prev.next = cur.next   # Cut it out
+                prev.next = cur.next  # Cut it out
                 return cur  # Return deleted node
             else:
                 prev = cur
@@ -78,6 +79,7 @@ class LinkedList:
         else:
             # Overwrite old value
             node.value = value
+
 
 if __name__ == "__main__":
     l = LinkedList()

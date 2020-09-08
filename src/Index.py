@@ -8,22 +8,26 @@ records = [
     ("Grace", "Marketing")
 ]
 
-def add_to_index(name, dept):
-	if dept not in dept_idx:
-		dept_idx[dept] = []
 
-	dept_idx[dept].append(name)
+def add_to_index(name, dept):
+    if dept not in dept_idx:
+        dept_idx[dept] = []
+
+    dept_idx[dept].append(name)
+
 
 dept_idx = {}
 
 # Build the index
 for name, dept in records:
-	add_to_index(name, dept)
+    add_to_index(name, dept)
+
 
 def add_employee(name, dept):
-	records.append((name, dept))
+    records.append((name, dept))
 
-	add_to_index(name, dept)
+    add_to_index(name, dept)
+
 
 # Do quick lookups
 print(dept_idx["Sales"])
