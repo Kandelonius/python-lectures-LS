@@ -60,8 +60,30 @@ SAVE_REG = 3
 PRINT_REG = 4
 PUSH = 5
 POP = 6
+CALL = 7
+RET = 8
 
 registers[SP] = 0xF4  # Init SP
+
+def push_value(value):
+	# Decrement SP
+	registers[SP] -= 1
+
+	# Copy the value to the SP address
+	top_of_stack_addr = registers[SP]
+	memory[top_of_stack_addr] = value
+
+def pop_value():
+	# Get the top of stack addr
+	top_of_stack_addr = registers[SP]
+
+	# Get the value at the top of the stack
+	value = memory[top_of_stack_addr]
+
+	# Increment the SP
+	registers[SP] += 1
+
+	return value
 
 running = True
 
@@ -87,18 +109,13 @@ while running:
 		pc += 2
 
 	elif ir == PUSH:
-		# Decrement SP
-		registers[SP] -= 1
-
 		# Get the reg num to push
 		reg_num = memory[pc + 1]
 
 		# Get the value to push
 		value = registers[reg_num]
 
-		# Copy the value to the SP address
-		top_of_stack_addr = registers[SP]
-		memory[top_of_stack_addr] = value
+		push_value(value)
 
 		#print(memory[0xea:0xf4])
 
@@ -108,19 +125,31 @@ while running:
 		# Get reg to pop into
 		reg_num = memory[pc + 1]
 
-		# Get the top of stack addr
-		top_of_stack_addr = registers[SP]
-
 		# Get the value at the top of the stack
-		value = memory[top_of_stack_addr]
+		value = pop_value()
 
 		# Store the value in the register
 		registers[reg_num] = value
 
-		# Increment the SP
-		registers[SP] += 1
-
 		pc += 2
+
+	elif ir == CALL:
+		# Compute the return addr
+		return_addr = pc + 2
+
+		# Push return addr on stack
+		push_value(return_addr)
+
+		# Get the value from the operand reg
+		reg_num = memory[pc + 1]
+		value = registers[reg_num]
+
+		# Set the pc to that value
+		pc = value
+
+	#elif ir == RET:
+		# TODO
+
 
 	else:
 		print(f"Unknown instruction {ir}")
@@ -129,9 +158,15 @@ while running:
 	"""
 	# For the LS-8 to move the PC
 
-	number_of_operands = (ir & 0b11000000) >> 6
+	# Any of these three lines should work
+	inst_sets_pc = (ir >> 4) & 1 == 1
+	inst_sets_pc = ir & 16 != 0
+	inst_sets_pc = ir & 16  # Does this work?
 
-	how_far_to_move_pc = number_of_operands + 1
+	if not inst_sets_pc:  # if not CALL, RET, etc.
+		number_of_operands = (ir & 0b11000000) >> 6
 
-	pc += how_far_to_move_pc
+		how_far_to_move_pc = number_of_operands + 1
+
+		pc += how_far_to_move_pc
 	"""
